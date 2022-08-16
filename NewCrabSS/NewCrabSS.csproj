@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>images\NewCrabSS.ico</ApplicationIcon>
+    <SignAssembly>False</SignAssembly>
+    <Version>1.0.0</Version>
+    <Authors>Bilibili @是螃蟹aaaaa</Authors>
+    <Company>Crab Studio</Company>
+    <Product>CrabSS Reborn</Product>
+    <Description>CrabSS Reborn 全新的UI页面，几乎一致的功能，希望你能喜欢 &gt;w&lt;</Description>
+    <Copyright>©2019-2022 Crab Studio. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://crabss.heycrab.xyz</PackageProjectUrl>
+    <PackageIcon>CrabSS.png</PackageIcon>
+    <RepositoryUrl>https://github.com/HeyCrab3/CrabSS</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <AssemblyVersion>1.2.20.2206</AssemblyVersion>
+    <FileVersion>1.0.0 (Release-CN)</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\CrabSS.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="welcome\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.Core" Version="3.7.12.9" />
+    <PackageReference Include="libc.hwid" Version="6.0.1" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\CrabSS.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

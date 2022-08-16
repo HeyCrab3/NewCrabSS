@@ -1,0 +1,30 @@
+﻿<Window x:Class="NewCrabSS.window.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NewCrabSS.window" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="关于 CrabSS" Height="450" Width="800" FontFamily="HarmonyOS Sans SC" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl
+    TabStripPlacement="Left">
+                <TabItem
+      Header="关于客户端">
+                    <Grid>
+                        <Label Content="CrabSS Reborn" HorizontalAlignment="Left" Height="36" Margin="22,20,0,0" VerticalAlignment="Top" Width="161" FontSize="20"/>
+                        <Label Content="v1.0.0 (Release-CN)" HorizontalAlignment="Left" Height="24" Margin="22,52,0,0" VerticalAlignment="Top" Width="134" Foreground="Gray"/>
+                        <Label HorizontalAlignment="Left" Height="56" Margin="22,74,0,0" VerticalAlignment="Top" Width="657" Foreground="Red">
+                            <TextBlock Text="本程序受《中华人民共和国知识产权法》保护，任何未经许可的二次分发倒卖属于违法行为" TextWrapping="Wrap"/>
+                        </Label>
+                    </Grid>
+                </TabItem>
+                <TabItem
+      Header="更新日志">
+                <Grid>
+                    <Label>Nothing.</Label>
+                </Grid>
+                </TabItem>
+            </TabControl>
+    </Grid>
+</Window>
