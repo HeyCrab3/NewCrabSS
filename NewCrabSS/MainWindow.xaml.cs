@@ -37,6 +37,11 @@ namespace NewCrabSS
         public MainWindow()
         {
             InitializeComponent();
+            if (File.Exists("idontwannaseeads.inf"))
+            {
+                ad1.IsEnabled = false;
+                closead.IsChecked = true;
+            }
             if (File.Exists("config.json"))
             {
                 try
@@ -286,7 +291,7 @@ namespace NewCrabSS
             {
                 if (data.Text.Contains('/'))
                 {
-                    p.StandardInput.WriteLine(data.Text);
+                    p.StandardInput.WriteLine(data.Text.Replace("/", string.Empty));
                 }
                 else
                 {
@@ -303,6 +308,27 @@ namespace NewCrabSS
         private void writeEula(object sender, RoutedEventArgs e)
         {
             File.WriteAllText("eula.txt", "# 这是通过 CrabSS Reborn 生成的 EULA 文件。该文件不具有标示性，拷至其他服务器仍可免同意 EULA。\n#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).\neula = true");
+        }
+
+        private void closead_Checked(object sender, RoutedEventArgs e)
+        {
+            if (closead.IsChecked == true)
+            {
+                if (File.Exists("idontwannaseeads.inf"))
+                {
+                    return;
+                }
+                else
+                {
+                    File.Create("idontwannaseeads.inf");
+                    MessageBox.Show("广告已经关闭啦~\n就是...能不能请螃蟹喝杯咖啡呢（搓手手）...毕竟开发也有成本嘛", ":)", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            if (closead.IsChecked == false)
+            {
+                File.Delete("idontwannaseeads.inf");
+                MessageBox.Show("感谢你打开了广告~\n螃蟹有收入了，能更好的开发啦~", ":)", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

@@ -46,12 +46,15 @@
                                 <Border BorderBrush="#FF00E677" BorderThickness="1" HorizontalAlignment="Left" Height="208" VerticalAlignment="Top" Margin="0,10,0,0">
                                     <Grid Background="#FFC2F9DF" UseLayoutRounding="False">
                                         <materialDesign:PackIcon Kind="InformationOutline" Height="28" Width="28" Margin="10,13,0,0" Foreground="#FF00C164" />
-                                        <Label Content="公告" Foreground="#FF00C164" HorizontalAlignment="Left" Height="22" Margin="43,16,0,0" VerticalAlignment="Top" Width="62"/>
+                                        <Label Content="公告" Foreground="#FF00C164" HorizontalAlignment="Left" Height="30" Margin="43,16,0,0" VerticalAlignment="Top" Width="62"/>
                                         <Label x:Name="xd" Content="正在加载公告" Foreground="#FF00C164" HorizontalAlignment="Left" Height="104" Margin="10,46,0,0" VerticalAlignment="Top" Width="449"/>
                                     </Grid>
                                 </Border>
                                 <Image HorizontalAlignment="Left" Height="555" Margin="828,10,0,0" VerticalAlignment="Top" Width="338"/>
                                 <Image HorizontalAlignment="Left" Height="246" Margin="0,319,0,0" VerticalAlignment="Top" Width="714"/>
+                                <GroupBox x:Name="ad1" HorizontalAlignment="Left" Height="613" Header="广告 可在设置中关闭" Margin="867,-34,0,0" VerticalAlignment="Top" Width="309">
+                                    <Image HorizontalAlignment="Left" Height="565" VerticalAlignment="Top" Width="292" Source="https://s1.328888.xyz/2022/08/20/Bx2UE.png"/>
+                                </GroupBox>
                             </Grid>
                         </StackPanel>
                     </TabItem>
@@ -143,7 +146,9 @@
                                         </Grid>
                                     </TabItem>
                                     <TabItem Header="内网穿透（测试）">
-                                        <Grid></Grid>
+                                        <Grid>
+                                            <Label Content="Coming soon" HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="327"/>
+                                        </Grid>
                                     </TabItem>
                                 </TabControl>
                             </Grid>
@@ -161,6 +166,10 @@
                                 <Label Content="明暗主题" Margin="0,12,1090,554"></Label>
                                 <RadioButton IsChecked="True" Content="明亮主题 / Light" Checked="light" HorizontalAlignment="Left" Margin="74,14,0,0" VerticalAlignment="Top"/>
                                 <RadioButton Content="黑暗主题 / Dark" Checked="dark" HorizontalAlignment="Left" Margin="210,14,0,0" VerticalAlignment="Top"/>
+                                <Label Content="关闭广告" Margin="0,45,1090,521"/>
+                                <Label Content="关掉之后能不能请螃蟹在爱发电上喝一杯咖啡呢 毕竟维护也是有成本的 = =" Margin="0,68,766,498" FontSize="10"/>
+                                <Label Content="此项生效需要重启客户端！" Margin="0,90,766,484" FontSize="10" Background="{x:Null}" Foreground="#DDFF0000"/>
+                                <ToggleButton x:Name="closead" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="开启代表关闭一切客户端内广告" Margin="62,48,1069,526" Checked="closead_Checked" />
                             </Grid>
                         </StackPanel>
                     </TabItem>
