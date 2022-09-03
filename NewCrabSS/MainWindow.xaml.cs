@@ -72,7 +72,7 @@ namespace NewCrabSS
                     MessageBox.Show("发生了关键错误，程序无法启动。\n" + ex.ToString(), "LLLLLL Critical Failure " + ex.Message, MessageBoxButton.OK, MessageBoxImage.Stop);
                 }
             }
-            var result = WebHandler.webhandler.GetReq("https://v6.crabapi.cn/api/crabss/broadcast?channel=beta&encode=text");
+            var result = WebHandler.webhandler.IGetReq("https://v6.crabapi.cn/api/crabss/broadcast?channel=beta&encode=text");
             xd.Content = result;
             PluginHandler.PluginHandler.GetPluginList(plist, count);
         }
@@ -174,7 +174,7 @@ namespace NewCrabSS
             var content = '"' + path.Text + '"' + " -Xms" + minRam.Text + "M -Xmx" + maxRam.Text + "M -jar " + core.Text + " " + other.Text;
             try
             {
-                File.WriteAllText("start.cmd", content);
+                File.WriteAllTextAsync("start.cmd", content);
                 snackbarMessageQueue.Enqueue("脚本写入成功，现在可以前往控制台页面启动服务器了 :)");
             }catch (Exception ex)
             {
@@ -198,7 +198,7 @@ namespace NewCrabSS
             oJson["javaPath"] = @path.Text;
             oJson["other"] = other.Text;
             string strConvert = Convert.ToString(oJson); //将json装换为string
-            File.WriteAllText("config.json", strConvert); //将内容写进json文件中
+            File.WriteAllTextAsync("config.json", strConvert); //将内容写进json文件中
             snackbarMessageQueue.Enqueue("配置文件写入成功，下次应用程序启动时将会自动读取");
         }
 
@@ -225,8 +225,8 @@ namespace NewCrabSS
             confContainer.Text = null;
             try
             {
-                var content = File.ReadAllText("server.properites");
-                confContainer.Text = content;
+                var content = File.ReadAllTextAsync("server.properites");
+                confContainer.Text = content.Result;
             }
             catch(Exception ex)
             {
@@ -238,7 +238,7 @@ namespace NewCrabSS
         {
             try
             {
-                File.WriteAllText("server.properites", confContainer.Text);
+                File.WriteAllTextAsync("server.properites", confContainer.Text);
             }
             catch (Exception ex)
             {

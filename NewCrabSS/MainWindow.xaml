@@ -21,7 +21,7 @@
                     <MenuItem Header="退出" x:Name="exit" Click="exit_Click"  InputGestureText="Alt+F4" Icon="{materialDesign:PackIcon Kind=ExitToApp}"/>
                 </MenuItem>
                 <MenuItem Header="关于">
-                    <MenuItem Header="关于CrabSS" Click="about_Click" x:Name="about" InputGestureText="v1.0.0 (Release-CN)"/>
+                    <MenuItem Header="关于CrabSS" Click="about_Click" x:Name="about" InputGestureText="v1.0.2 (Release-CN)"/>
                     <MenuItem Header="检查更新" Click="update_Click" x:Name="update"/>
                     <MenuItem Header="请螃蟹吃派蒙雪糕" x:Name="afdian" Click="afdian_Click" InputGestureText="打开螃蟹的爱发电"/>
                 </MenuItem>
@@ -53,7 +53,7 @@
                                 <Image HorizontalAlignment="Left" Height="555" Margin="828,10,0,0" VerticalAlignment="Top" Width="338"/>
                                 <Image HorizontalAlignment="Left" Height="246" Margin="0,319,0,0" VerticalAlignment="Top" Width="714"/>
                                 <GroupBox x:Name="ad1" HorizontalAlignment="Left" Height="613" Header="广告 可在设置中关闭" Margin="867,-34,0,0" VerticalAlignment="Top" Width="309">
-                                    <Image HorizontalAlignment="Left" Height="565" VerticalAlignment="Top" Width="292" Source="https://s1.328888.xyz/2022/08/20/Bx2UE.png"/>
+                                    <Image HorizontalAlignment="Left" Height="565" VerticalAlignment="Top" Width="292" Source="https://img1.imgtp.com/2022/09/03/1Gksekij.png"/>
                                 </GroupBox>
                             </Grid>
                         </StackPanel>

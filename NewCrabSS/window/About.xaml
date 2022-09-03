@@ -13,7 +13,7 @@
       Header="关于客户端">
                     <Grid>
                         <Label Content="CrabSS Reborn" HorizontalAlignment="Left" Height="36" Margin="22,20,0,0" VerticalAlignment="Top" Width="161" FontSize="20"/>
-                        <Label Content="v1.0.1 (Release-CN)" HorizontalAlignment="Left" Height="24" Margin="22,52,0,0" VerticalAlignment="Top" Width="134" Foreground="Gray"/>
+                        <Label Content="v1.0.2 (Release-CN)" HorizontalAlignment="Left" Height="24" Margin="22,52,0,0" VerticalAlignment="Top" Width="134" Foreground="Gray"/>
                         <Label HorizontalAlignment="Left" Height="56" Margin="22,74,0,0" VerticalAlignment="Top" Width="657" Foreground="Red">
                             <TextBlock Text="本程序受《中华人民共和国知识产权法》保护，任何未经许可的二次分发倒卖属于违法行为" TextWrapping="Wrap"/>
                         </Label>
@@ -22,9 +22,16 @@
                 <TabItem
       Header="更新日志">
                 <Grid>
-                    <Label Content="v1.0.1更新内容："/>
-                    <Label Margin="0,22,0,-21" Content="添加了 Skyrim Client 广告以及关闭广告选项"/>
-                    <Label Margin="0,45,0,-44" Content="修复了无法发命令的Bug"/>
+                    <Grid>
+                        <Label Content="v1.0.2更新内容："/>
+                        <Label Margin="0,22,0,-21" Content="感谢 GitHub @Cjj-sys 提出的意见，大部分文件读取写入以及网络请求都已转为异步操作，减少线程堵塞可能性(Issues #2)"/>
+                        <Label Margin="0,45,0,-44" Content="没广告了、、哪位大神能投放广告啊"/>
+                    </Grid>
+                    <Grid Margin="0,92,0,-92">
+                        <Label Content="v1.0.1更新内容："/>
+                        <Label Margin="0,22,0,-21" Content="添加了 Skyrim Client 广告以及关闭广告选项"/>
+                        <Label Margin="0,45,0,-44" Content="修复了无法发命令的Bug"/>
+                    </Grid>
                 </Grid>
                 </TabItem>
             </TabControl>

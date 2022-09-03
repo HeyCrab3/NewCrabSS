@@ -30,6 +30,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include=".github\ISSUE_TEMPLATE\Bug.md" />
+    <None Include=".github\ISSUE_TEMPLATE\Features.md" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AWSSDK.Core" Version="3.7.12.9" />
     <PackageReference Include="libc.hwid" Version="6.0.1" />
     <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />

@@ -39,7 +39,7 @@ namespace NewCrabSS.window
         private void verify_Click(object sender, RoutedEventArgs e)
         {
             verify.Content = "Loading...";
-            var result = WebHandler.webhandler.GetReq("https://api-crabss.crabapi.cn/application/v1/hwid/auth?hwid=" + HWID);
+            var result = WebHandler.webhandler.IGetReq("https://api-crabss.crabapi.cn/application/v1/hwid/auth?hwid=" + HWID);
             ConfigProvider.ConfigProvider.HWID b = JsonConvert.DeserializeObject<ConfigProvider.ConfigProvider.HWID>(result);
             if (b.code != 0)
             {

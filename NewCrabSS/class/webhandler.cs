@@ -3,32 +3,25 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace NewCrabSS.WebHandler
 {
     public partial class webhandler
     {
-        public static string GetReq(string url)
+        public static string IGetReq(string url)
         {
-            string result = "";
-            HttpWebRequest req = WebRequest.Create(url) as HttpWebRequest;
-            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-            Stream stream = resp.GetResponseStream();
-            try
-            {
-                //获取内容
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    result = reader.ReadToEnd();
-                }
+            HttpClient httpClient = new HttpClient();
+            var result = httpClient.GetAsync(url);
+            string? content = result.Result.Content.ReadAsStringAsync().Result.ToString();
+            // MessageBox.Show(content);
+            if (content == null){
+                return null;
             }
-            finally
-            {
-                stream.Close();
-            }
-            return result;
+            return content;
         }
     }
 }
