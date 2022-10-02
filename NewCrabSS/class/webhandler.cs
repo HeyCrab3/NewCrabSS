@@ -17,7 +17,6 @@ namespace NewCrabSS.WebHandler
             HttpClient httpClient = new HttpClient();
             var result = httpClient.GetAsync(url);
             string? content = result.Result.Content.ReadAsStringAsync().Result.ToString();
-            // MessageBox.Show(content);
             if (content == null){
                 return null;
             }

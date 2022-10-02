@@ -1,4 +1,5 @@
 ﻿using MaterialDesignThemes.Wpf;
+using NewCrabSS.CustomizeControls;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -18,6 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ThirdParty.Json.LitJson;
+using MessageBox = NewCrabSS.CustomizeControls.MessageBox;
 
 namespace NewCrabSS
 {
@@ -69,7 +71,9 @@ namespace NewCrabSS
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("发生了关键错误，程序无法启动。\n" + ex.ToString(), "LLLLLL Critical Failure " + ex.Message, MessageBoxButton.OK, MessageBoxImage.Stop);
+                    MessageBox messageBoxInstance = new("发生关键错误！", $"发生了关键错误，程序无法启动。\n{ex}","Error");
+                    messageBoxInstance.Show();
+                    Close();
                 }
             }
             var result = WebHandler.webhandler.IGetReq("https://v6.crabapi.cn/api/crabss/broadcast?channel=beta&encode=text");
@@ -130,7 +134,8 @@ namespace NewCrabSS
         {
             if (!File.Exists("start.cmd"))
             {
-                MessageBox.Show("没有对应的脚本文件，请检查。", "L FileNotExist", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox messageBoxInstance = new("抛出异常：脚本不存在", $"用于执行开服指令的脚本不存在，请检查。");
+                messageBoxInstance.Show();
                 boot.IsEnabled = true;
             }
             else
@@ -175,10 +180,13 @@ namespace NewCrabSS
             try
             {
                 File.WriteAllTextAsync("start.cmd", content);
-                snackbarMessageQueue.Enqueue("脚本写入成功，现在可以前往控制台页面启动服务器了 :)");
-            }catch (Exception ex)
+                MessageBox messageBoxInstance = new("成功", $"脚本已经生成成功，现在可以前往控制台页面启动服务器了。", "Information");
+                messageBoxInstance.Show();
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "L " + ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox messageBoxInstance = new($"抛出异常：{ex.Message}", $"发生了未知错误。\n{ex}");
+                messageBoxInstance.Show();
             }
             
         }
@@ -199,7 +207,8 @@ namespace NewCrabSS
             oJson["other"] = other.Text;
             string strConvert = Convert.ToString(oJson); //将json装换为string
             File.WriteAllTextAsync("config.json", strConvert); //将内容写进json文件中
-            snackbarMessageQueue.Enqueue("配置文件写入成功，下次应用程序启动时将会自动读取");
+            MessageBox messageBoxInstance = new("成功", $"配置文件已写入！", "Information");
+            messageBoxInstance.Show();
         }
 
         private void loadProp(object sender, RoutedEventArgs e)
@@ -215,7 +224,8 @@ namespace NewCrabSS
             }
             catch
             {
-                MessageBox.Show("配置文件不存在，请确认是否开启过服务器。","L",MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox messageBoxInstance = new($"抛出异常：配置文件不存在", $"服务器的配置文件不存在。请先启动一次服务器再进行编辑。");
+                messageBoxInstance.Show();
             }
             
         }
@@ -230,7 +240,8 @@ namespace NewCrabSS
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "L " + ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox messageBoxInstance = new($"抛出异常：{ex.Message}", $"发生了未知错误。\n{ex}");
+                messageBoxInstance.Show();
             }
         }
 
@@ -242,7 +253,8 @@ namespace NewCrabSS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "L " + ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox messageBoxInstance = new($"抛出异常：{ex.Message}", $"发生了未知错误。\n{ex}");
+                messageBoxInstance.Show();
             }
         }
         private void ProcessOutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
@@ -281,7 +293,8 @@ namespace NewCrabSS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "L " + ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox messageBoxInstance = new($"抛出异常：{ex.Message}", $"发生了未知错误。\n{ex}");
+                messageBoxInstance.Show();
             }
         }
 
@@ -301,7 +314,8 @@ namespace NewCrabSS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("无法发送指令，请先启动服务器。如果服务器已启动，请尝试重启进程！\n" + ex.ToString(), "L " + ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox messageBoxInstance = new($"抛出异常：指令发送失败 {ex.Message}", $"无法发送指令，请先启动服务器。如果服务器已启动，请尝试重启进程！\n{ex}");
+                messageBoxInstance.Show();
             }
         }
 
@@ -321,13 +335,15 @@ namespace NewCrabSS
                 else
                 {
                     File.Create("idontwannaseeads.inf");
-                    MessageBox.Show("广告已经关闭啦~\n就是...能不能请螃蟹喝杯咖啡呢（搓手手）...毕竟开发也有成本嘛", ":)", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox messageBoxInstance = new("成功","广告已经关闭啦~\n就是...能不能请螃蟹喝杯咖啡呢（搓手手）...毕竟开发也有成本嘛" , "Information");
+                    messageBoxInstance.Show();
                 }
             }
             if (closead.IsChecked == false)
             {
                 File.Delete("idontwannaseeads.inf");
-                MessageBox.Show("感谢你打开了广告~\n螃蟹有收入了，能更好的开发啦~", ":)", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox messageBoxInstance = new("成功","感谢你打开了广告~\n螃蟹有收入了，能更好的开发啦~" , "Information");
+                messageBoxInstance.Show();
             }
         }
     }

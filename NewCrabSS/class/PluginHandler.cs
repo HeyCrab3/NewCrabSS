@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using MessageBox = NewCrabSS.CustomizeControls.MessageBox;
 
 namespace NewCrabSS.PluginHandler
 {
@@ -14,7 +15,7 @@ namespace NewCrabSS.PluginHandler
         public static void GetPluginList(ListBox pluginlist, Label counts) {
             try
             {
-                String path = @"plugins";
+                string path = @"plugins";
                 string[] files = Directory.GetFiles(path, "*.jar");
                 string[] dfiles = Directory.GetFiles(path, "*.jar.DISABLED");
                 foreach (string file in files)
@@ -29,7 +30,8 @@ namespace NewCrabSS.PluginHandler
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(),"L " + ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox messageBoxInstance = new($"抛出异常：{ex.Message}", $"无法正常读取插件列表。可能是因为服务器未启动过？", "Error");
+                messageBoxInstance.Show();
                 counts.Content = "服务器目前安装了 N/A 个插件";
             }
         }
@@ -43,24 +45,28 @@ namespace NewCrabSS.PluginHandler
                     if (filename.ToString().Contains(".DISABLED") == true)
                     {
                         File.Move(filename.ToString().Replace("(已禁用)", ""), filename.ToString().Replace(".DISABLED (已禁用)", ""));
-                        MessageBox.Show("插件已成功解除禁用", "成功！", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox messageBoxInstance = new("成功", $"插件已成功解除禁用！", "Information");
+                        messageBoxInstance.Show();
                     }
                     else
                     {
                         list.SelectedValue = filename + " (已禁用)";
                         File.Move(filename.ToString(), filename.ToString() + ".DISABLED");
-                        MessageBox.Show("插件已成功禁用", "成功！", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox messageBoxInstance = new("成功", $"插件已成功禁用！", "Information");
+                        messageBoxInstance.Show();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("LOWIQ\n选择项是空的","L 主播是LowIQ",MessageBoxButton.OK,MessageBoxImage.Error);
+                    MessageBox messageBoxInstance = new($"NULL", $"宁的IQ？", "Error");
+                    messageBoxInstance.Show();
                 }
                 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "L " + ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox messageBoxInstance = new($"抛出异常：{ex.Message}", $"发生了未知错误。\n{ex}", "Error");
+                messageBoxInstance.Show();
             }
         }
         public static void AddPlugins(ListBox pluginlist, Label counts)
@@ -82,14 +88,16 @@ namespace NewCrabSS.PluginHandler
                         pluginlist.Items.Add(file);
                     }
                     counts.Content = "服务器目前安装了 " + pluginlist.Items.Count + " 个插件";
-                    MessageBox.Show("插件已成功安装！", ":D",MessageBoxButton.OK,MessageBoxImage.Information);
+                    MessageBox messageBoxInstance = new("成功", $"插件已成功安装！", "Information");
+                    messageBoxInstance.Show();
                     pluginlist.Items.Clear();
                     GetPluginList(pluginlist, counts);
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "L " + ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox messageBoxInstance = new($"抛出异常：{ex.Message}", $"发生了未知错误。\n{ex}", "Error");
+                messageBoxInstance.Show();
                 counts.Content = "服务器目前安装了 N/A 个插件";
             }
         }
@@ -107,17 +115,20 @@ namespace NewCrabSS.PluginHandler
                         File.Delete(result);
                     }
                     File.Delete(filename.ToString());
-                    MessageBox.Show("插件已成功删除", "成功！", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox messageBoxInstance = new("成功", $"插件已成功删除！", "Information");
+                    messageBoxInstance.Show();
                 }
                 else
                 {
-                    MessageBox.Show("LOWIQ\n选择项是空的", "L 主播是LowIQ", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox messageBoxInstance = new($"NULL", $"宁的IQ？");
+                    messageBoxInstance.Show();
                 }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "L " + ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox messageBoxInstance = new($"抛出异常：{ex.Message}", $"发生了未知错误。\n{ex}", "Error");
+                messageBoxInstance.Show();
             }
         }
     }

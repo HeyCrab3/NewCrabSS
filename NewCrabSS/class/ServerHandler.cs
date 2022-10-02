@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using MessageBox = NewCrabSS.CustomizeControls.MessageBox;
 
 namespace NewCrabSS.ServerHandler
 {
@@ -42,7 +43,8 @@ namespace NewCrabSS.ServerHandler
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString(), "L " + ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox messageBoxInstance = new($"抛出异常：{ex.Message}", $"发生了未知错误。\n{ex}", "Error");
+                    messageBoxInstance.Show();
                 }
             }
         }

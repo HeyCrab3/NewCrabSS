@@ -1,0 +1,3 @@
+@title Publishing CrabSS...
+@color 2f
+dotnet publish
