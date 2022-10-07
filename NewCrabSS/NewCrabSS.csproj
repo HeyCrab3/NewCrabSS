@@ -7,7 +7,7 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>images\NewCrabSS.ico</ApplicationIcon>
     <SignAssembly>False</SignAssembly>
-    <Version>1.0.1</Version>
+    <Version>1.0.3</Version>
     <Authors>Bilibili @是螃蟹aaaaa</Authors>
     <Company>Crab Studio</Company>
     <Product>CrabSS Reborn</Product>
@@ -18,7 +18,7 @@
     <RepositoryUrl>https://github.com/HeyCrab3/CrabSS</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <AssemblyVersion>1.2.20.2206</AssemblyVersion>
-    <FileVersion>1.0.1 (Release-CN)</FileVersion>
+    <FileVersion>1.0.3 (Release-CN)</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,6 +32,7 @@
   <ItemGroup>
     <None Include=".github\ISSUE_TEMPLATE\Bug.md" />
     <None Include=".github\ISSUE_TEMPLATE\Features.md" />
+    <None Include=".github\workflows\dotnet.yml" />
   </ItemGroup>
 
   <ItemGroup>

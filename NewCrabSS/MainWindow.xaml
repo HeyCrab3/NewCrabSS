@@ -21,7 +21,7 @@
                     <MenuItem Header="退出" x:Name="exit" Click="exit_Click"  InputGestureText="Alt+F4" Icon="{materialDesign:PackIcon Kind=ExitToApp}"/>
                 </MenuItem>
                 <MenuItem Header="关于">
-                    <MenuItem Header="关于CrabSS" Click="about_Click" x:Name="about" InputGestureText="v1.0.2 (Release-CN)"/>
+                    <MenuItem Header="关于CrabSS" Click="about_Click" x:Name="about" InputGestureText="v1.0.3 (Release-CN)"/>
                     <MenuItem Header="检查更新" Click="update_Click" x:Name="update"/>
                     <MenuItem Header="请螃蟹吃派蒙雪糕" x:Name="afdian" Click="afdian_Click" InputGestureText="打开螃蟹的爱发电"/>
                 </MenuItem>
