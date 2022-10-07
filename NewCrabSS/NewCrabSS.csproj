@@ -19,6 +19,7 @@
     <RepositoryType>git</RepositoryType>
     <AssemblyVersion>1.2.20.2206</AssemblyVersion>
     <FileVersion>1.0.3 (Release-CN)</FileVersion>
+	<EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
 
   <ItemGroup>
